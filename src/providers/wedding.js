@@ -2,21 +2,21 @@ import { createContext, useState } from "react";
 
 export const WeddingContext = createContext([]);
 
-export const GraduationProvider = ({ children }) => {
-    const [drinkList, setDrinkList] = useState([]);
+export const WeddingProvider = ({ children }) => {
+    const [weddingList, setWeddingList] = useState([]);
 
 
-    const addToList = (item) => {
-        setDrinkList([...drinkList, item]);
+    const addToWeddingList = (item) => {
+        setWeddingList([...weddingList, item]);
     }
 
-    const removeFromList = (item) => {
-        const newDrinkList = drinkList.filter((drink) => drink.id !== item.id);
-        setDrinkList(newDrinkList);
+    const removeFromWeddingList = (item) => {
+        const newDrinkList = weddingList.filter((drink) => drink.id !== item.id);
+        setWeddingList(newDrinkList);
     }
 
     return (
-        <WeddingContext.Provider value={{ drink, addToList, removeFromList }}>
+        <WeddingContext.Provider value={{ weddingList, addToWeddingList, removeFromWeddingList }}>
             {children}
         </WeddingContext.Provider>
     )
